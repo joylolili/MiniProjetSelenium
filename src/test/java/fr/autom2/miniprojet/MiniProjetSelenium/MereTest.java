@@ -61,6 +61,10 @@ public class MereTest {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
+	public void waitingPage(WebDriver driver) {
+		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+	}
+	
 	public HomePage login() {
 		waiting(driver);
 		
@@ -68,6 +72,8 @@ public class MereTest {
 		WebElement pwd = driver.findElement(By.id("password"));
 		WebElement btn = driver.findElement(By.xpath("//*[@id=\"login-form-button-set\"]/input"));
 		
+		user.clear();
+		pwd.clear();
 		user.sendKeys("admin");
 		pwd.sendKeys("admin");
 		btn.click();

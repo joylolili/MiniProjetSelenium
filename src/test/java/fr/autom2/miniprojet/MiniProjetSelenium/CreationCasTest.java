@@ -2,6 +2,8 @@ package fr.autom2.miniprojet.MiniProjetSelenium;
 
 import static org.junit.Assert.*;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,7 +11,7 @@ import org.openqa.selenium.WebElement;
 public class CreationCasTest extends MereTest {
 
 	@Test
-	public void creationCasDeTest() {
+	public void creationCasDeTest() throws Exception{
 		login();
 		
 		waiting(driver);
@@ -20,19 +22,26 @@ public class CreationCasTest extends MereTest {
 		waiting(driver);
 		// rentrer dans le page de Cas de Test
 		CasDeTestPage casDeTestPage = new CasDeTestPage(driver);
-		casDeTestPage.clicBtnPlus();
 		
+		waitingPage(driver);
+		
+		casDeTestPage.clicProjet();
+		Thread.sleep(2000);
 		waiting(driver);
+		
+		casDeTestPage.clicBtnPlus();
+		Thread.sleep(2000);
+		waiting(driver);
+		
+		PopUpCreationCas popUp = new PopUpCreationCas(driver);
+		
 		// Vérifier la présence des éléments de pop-up
-		WebElement nom = driver.findElement(By.xpath("//*[@id=\"add-test-case-dialog\"]/div//label[contains(text(),\"Nom\")]"));
-		WebElement reference = driver.findElement(By.xpath("//*[@id=\"add-test-case-dialog\"]/div//label[contains(text(),\"Référence\")]"));
-		WebElement description = driver.findElement(By.xpath("//*[@id=\"add-test-case-dialog\"]/div//label[contains(text(),\"Description\")]"));
-		WebElement btnAjouterAutre = driver.findElement(By.xpath("//div[@class=\"ui-dialog-buttonset\"]//input[@value=\"Ajouter un autre\"]"));
-		WebElement btnAjouter = driver.findElement(By.xpath("//div[@class=\"ui-dialog-buttonset\"]//input[@value=\"Ajouter\"]"));
-		WebElement btnAnnuler = driver.findElement(By.xpath("//div[@class=\"ui-dialog-buttonset\"]//input[@value=\"Annuler\"]"));
-		
-		assertEquals("Nom", nom.getText());
-		
+		assertEquals("Nom", popUp.getNom().getText());
+		assertEquals("Référence", popUp.getReference().getText());
+		assertEquals("Description", popUp.getDescription().getText());
+		assertEquals("Ajouter un autre", popUp.getBtnAjouterAutre().getAttribute("value"));
+		assertEquals("Ajouter", popUp.getBtnAjouter().getAttribute("value"));
+		assertEquals("Annuler", popUp.getBtnAnnuler().getAttribute("value"));
 		
 		
 		
