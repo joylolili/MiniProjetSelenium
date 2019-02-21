@@ -13,16 +13,16 @@ public class CreationCasTest extends MereTest {
 	@Test
 	public void creationCasDeTest() throws Exception{
 		login();
-		
+		Thread.sleep(2000);
 		waiting(driver);
 		
 		HomePage homePage = new HomePage(driver);
 		homePage.clickBtnCasDeTest();
-		
+		Thread.sleep(2000);
 		waiting(driver);
 		// rentrer dans le page de Cas de Test
 		CasDeTestPage casDeTestPage = new CasDeTestPage(driver);
-		
+		Thread.sleep(2000);
 		waitingPage(driver);
 		
 		casDeTestPage.clicProjet();

@@ -43,6 +43,7 @@ public class MereTest {
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.MINUTES);
 		driver.manage().window().maximize();
+		//driver.get("http://192.168.102.117:98760/squash/login");
 		driver.get("http://localhost:8080/squash/login");
 				
 	}
