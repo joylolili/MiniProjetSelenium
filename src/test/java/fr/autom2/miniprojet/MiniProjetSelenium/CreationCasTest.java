@@ -12,6 +12,7 @@ public class CreationCasTest extends MereTest {
 
 	@Test
 	public void creationCasDeTest() throws Exception{
+		Thread.sleep(5000);
 		login();
 		Thread.sleep(2000);
 		waiting(driver);
@@ -43,8 +44,6 @@ public class CreationCasTest extends MereTest {
 		assertEquals("Ajouter", popUp.getBtnAjouter().getAttribute("value"));
 		assertEquals("Annuler", popUp.getBtnAnnuler().getAttribute("value"));
 		
-		
-		
+		//homePage.click(homePage.getBtnCasDeTest(), CasDeTestPage.class);
 	}
-	
 }

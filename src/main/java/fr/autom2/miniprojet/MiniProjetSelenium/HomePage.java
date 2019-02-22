@@ -17,5 +17,14 @@ public class HomePage extends SquashPage{
 		btnCasDeTest.click();
 		return PageFactory.initElements(driver, CasDeTestPage.class);
 	}
+
+	public WebElement getBtnCasDeTest() {
+		return btnCasDeTest;
+	}
+
+	public void setBtnCasDeTest(WebElement btnCasDeTest) {
+		this.btnCasDeTest = btnCasDeTest;
+	}
  
+	
 }
