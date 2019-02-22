@@ -12,7 +12,7 @@ public class CreationCasTest extends MereTest {
 
 	@Test
 	public void creationCasDeTest() throws Exception{
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		login();
 		Thread.sleep(2000);
 		waiting(driver);
